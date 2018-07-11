@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>THALEXIM | Tạo mật khẩu mạnh</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="myapp.js"></script>
+</head>
+<body>
+<div class="container" data-ng-app="passGenerate" data-ng-controller="passController">
+    <h1 align="center">Trình tạo mật khẩu mạnh</h1>
+    <hr/>
+    <form role="form">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="text" data-ng-model="passwordInput" id="passwordInput" class="form-control" name="password" placeholder="Generate your own strong password">
+        </div>
+        <br/>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <label class="checkbox-inline">
+                    <input type="checkbox" data-ng-model="upperGen">Chữ in Hoa
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" data-ng-model="numbersGen">Số
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" data-ng-model="symbolsGen">Ký tự đặc biệt (e.g. !@#$)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="passwordInput">Độ dài mật khẩu</label>
+            <input type="range" min="5" max="30" step="1" value="15" data-ng-model="passwordLength">{{passwordLength}}
+        </div>
+        <button type="button" class="btn btn-success" data-ng-click="generatePassword()">TẠO</button>
+    </form>
+</div>
+</body>
+</html>
